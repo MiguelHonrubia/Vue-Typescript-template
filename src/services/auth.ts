@@ -1,44 +1,28 @@
-import axios from "axios";
+import Api from "./api";
 import userSession from "../modules/user-session";
-import { UserRegistration } from "../types/user";
 
-export const Login = (user: any) => {
-  return new Promise((resolve, reject) => {
-    axios.post("https://localhost:44347/api/Auth/SignIn", user).then(
-      (response) => {
-        const token = response.data;
-        userSession.saveSession(token);
-        resolve(user);
-      },
-      function(err) {
-        console.error("Login error", err);
-        reject(err.response);
-      }
-    );
-  });
+const requestOptions = {
+  baseUrl: process.env.VUE_APP_API_URL,
+  defaultOptions: {},
 };
 
-export const Register = (user: UserRegistration) => {
-  return new Promise((resolve, reject) => {
-    axios.post("https://localhost:44347/api/Auth/SignUp", user).then(
-      () => {
-        resolve(user);
-      },
-      function(err) {
-        console.error("Register error", err);
-        reject(err.response);
-      }
-    );
-  });
-};
+const api = new Api(requestOptions);
 
-export const loadUser = () => {
-  userSession.loadSession();
-};
+export const login = (body: any) => api.post("/Auth/SignIn", { body });
+export const singup = (body: any) => api.post("/Auth/SignUp", { body });
+export const getUser = () => api.get("/Auth/User/Info");
 
-export const logout = (router: any) => {
-  userSession.quitSession();
-  if (router) {
-    router.push({ name: "Login" });
+export const loginUser = async (body: any) => {
+  const response = await login(body);
+
+  if (response) {
+    userSession.saveSession(response);
+
+    const user = await getUser();
+
+    if (user) {
+      userSession.saveUserSession(user);
+      return user;
+    }
   }
 };

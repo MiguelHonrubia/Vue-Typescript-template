@@ -22,7 +22,7 @@
         <v-text-field
           type="text"
           name="firstName"
-          v-model="input.firstname"
+          v-model="input.firstName"
           placeholder="Firstname"
         />
       </v-col>
@@ -33,7 +33,7 @@
         <v-text-field
           type="text"
           name="lastName"
-          v-model="input.lastname"
+          v-model="input.lastName"
           placeholder="Lastname"
         />
       </v-col>
@@ -59,8 +59,7 @@
 </template>
 
 <script>
-import axios from "axios";
-import { Register } from "../../services/auth";
+import { SignUp } from "../../services/auth";
 
 export default {
   name: "Login",
@@ -68,26 +67,24 @@ export default {
     return {
       input: {
         email: "",
-        firstname: "",
-        lastname: "",
+        firstName: "",
+        lastName: "",
         password: "",
       },
     };
   },
   methods: {
-    SignUp() {
+    async SignUp() {
       if (
         this.input.email != "" &&
-        this.input.firstname != "" &&
-        this.input.lastname != "" &&
+        this.input.firstName != "" &&
+        this.input.lastName != "" &&
         this.input.password != ""
       ) {
-        Register(this.input).then(() => {
+        const response = await SignUp(this.input);
+        if (response) {
           this.$router.replace({ name: "Login" });
-        }),
-          (error) => {
-            console.error(error);
-          };
+        }
       } else {
         //todo: required validation
       }

@@ -1,0 +1,13 @@
+{
+  "general": {
+    "cancel": "Cancelar",
+    "accept": "Aceptar"
+  },
+  "pages": {
+    "user": {
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "signin": "Entrar"
+    }
+  }
+}

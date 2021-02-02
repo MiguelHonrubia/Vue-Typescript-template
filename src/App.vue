@@ -4,6 +4,7 @@
     <LateralMenu
       id="lateralMenu"
       :authenticated="authenticated"
+      :user="user"
       @logout="logout"
     />
     <router-view @authenticated="setAuthenticated" />
@@ -13,6 +14,7 @@
 <script>
 import userSession from "./modules/user-session";
 import LateralMenu from "./components/LateralMenu";
+import { STORAGE_USER } from "./utils/constants";
 
 export default {
   name: "App",
@@ -22,6 +24,7 @@ export default {
         window.localStorage.getItem("authenticated") != null
           ? Boolean(window.localStorage.getItem("authenticated"))
           : false,
+      user: JSON.parse(window.localStorage.getItem(STORAGE_USER)),
     };
   },
   methods: {

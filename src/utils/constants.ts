@@ -1,3 +1,9 @@
+export const storage = window.localStorage;
+export const STORAGE_TOKEN_KEY = "user-token";
+export const STORAGE_USER = "user";
+export const STORAGE_USER_EMAIL = "user-email";
+export const STORAGE_USER_FULL_NAME = "user-fullName";
+
 export const Menu = [
   {
     title: "Home",

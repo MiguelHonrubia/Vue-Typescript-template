@@ -10,9 +10,14 @@
       <v-list-item-avatar v-if="authenticated">
         <v-img src="https://randomuser.me/api/portraits/men/85.jpg"></v-img>
       </v-list-item-avatar>
+
       <v-list-item-title v-if="authenticated" class="MenuAvatar"
-        >Tomasín Escudero
+        >{{ user && user.fullName }}
       </v-list-item-title>
+
+      <v-list-item-subtitle v-if="authenticated"
+        >{{ user && user.email }}
+      </v-list-item-subtitle>
 
       <v-btn icon @click.stop="mini = !mini">
         <v-icon>mdi-chevron-left</v-icon>
@@ -45,6 +50,7 @@
 
 <script>
 import { Menu } from "../utils/constants";
+import { UserSession } from "../types/user";
 
 export default {
   props: {
@@ -52,8 +58,11 @@ export default {
       type: Boolean,
       default: false,
     },
+    user: {
+      type: UserSession,
+      default: null,
+    },
   },
-
   data() {
     return {
       drawer: true,

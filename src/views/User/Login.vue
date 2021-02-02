@@ -9,7 +9,7 @@
           type="text"
           name="email"
           v-model="input.email"
-          placeholder="Email"
+          :placeholder="$t('pages.user.email')"
       /></v-col>
     </v-row>
     <v-row>
@@ -18,7 +18,7 @@
           type="password"
           name="password"
           v-model="input.password"
-          placeholder="Password"
+          :placeholder="$t('pages.user.password')"
       /></v-col>
     </v-row>
     <v-row>
@@ -28,8 +28,7 @@
 </template>
 
 <script>
-import axios from "axios";
-import { Login } from "../../services/auth";
+import { loginUser } from "../../services/auth";
 
 export default {
   name: "Login",
@@ -44,14 +43,11 @@ export default {
   methods: {
     async auth() {
       if (this.input.email != "" && this.input.password != "") {
-        Login(this.input).then((result) => {
-          const authenticated = window.localStorage.getItem("authenticated");
-
-          if (authenticated == "true") {
-            this.$emit("authenticated", true);
-            this.$router.push({ name: "Home" });
-          }
-        });
+        const user = await loginUser(this.input);
+        if (user) {
+          this.$emit("authenticated", true);
+          this.$router.push({ name: "Home" });
+        }
       }
     },
   },
