@@ -13,7 +13,7 @@
 
 <script>
 import userSession from "./modules/user-session";
-import LateralMenu from "./components/LateralMenu";
+import LateralMenu from "./components/general/LateralMenu";
 import { STORAGE_USER } from "./utils/constants";
 
 export default {

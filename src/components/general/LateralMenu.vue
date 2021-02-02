@@ -49,8 +49,8 @@
 </template>
 
 <script>
-import { Menu } from "../utils/constants";
-import { UserSession } from "../types/user";
+import { Menu } from "../../utils/constants";
+import { UserSession } from "../../types/user";
 
 export default {
   props: {
