@@ -1,13 +1,11 @@
 {
-  "general": {
-    "cancel": "Cancelar",
-    "accept": "Aceptar"
-  },
-  "pages": {
-    "user": {
-      "email": "Correo electrónico",
-      "password": "Contraseña",
-      "signin": "Entrar"
-    }
-  }
+  "general.cancel": "Cancelar",
+  "general.accept": "Aceptar",
+  "pages.user.email": "Correo electrónico",
+  "pages.user.password": "Contraseña",
+  "pages.user.signup": "Registrarse",
+  "pages.user.signin": "Entrar",
+  "pages.user.firstname": "Nombre",
+  "pages.user.lastname": "Apellidos",
+  "pages.user.confirm-password": "Confirmar contraseña"
 }

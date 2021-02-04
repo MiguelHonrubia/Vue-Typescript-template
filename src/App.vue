@@ -7,6 +7,7 @@
       :user="user"
       @logout="logout"
     />
+
     <router-view @authenticated="setAuthenticated" />
   </v-app>
 </template>

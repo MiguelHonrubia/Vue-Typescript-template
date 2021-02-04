@@ -1,16 +1,16 @@
-import { listKey } from "../../types/listKey";
+import { listKeys } from "../../types/general/listKey";
 
-export const clientListKeys: listKey[] = [
+export const clientListKeys: listKeys[] = [
   {
+    key: "nombre",
     text: "Nombre / Razón Social",
     align: "start",
     sortable: false,
-    value: "fullName",
   },
-  { text: "Tipo Persona", value: "clientTypeName" },
-  { text: "Socio", value: "isMember" },
-  { text: "C. Postal", value: "postalCode" },
-  { text: "Población", value: "cityName" },
-  { text: "Móvil", value: "mobile" },
-  { text: "Email", value: "email" },
+  { key: "tipoPersona", text: "Tipo Persona" },
+  { key: "socio", text: "Socio" },
+  { key: "codigoPostal", text: "C. Postal" },
+  { key: "poblacion", text: "Población" },
+  { key: "movil", text: "Móvil" },
+  { key: "email", text: "Email" },
 ];

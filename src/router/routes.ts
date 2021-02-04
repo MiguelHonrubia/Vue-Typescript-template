@@ -3,7 +3,7 @@ import Home from "../views/Home.vue";
 import Login from "../views/User/Login.vue";
 import SignUp from "../views/User/SignUp.vue";
 
-const clientList = () => import("../views/Home.vue");
+const clientList = () => import("../views/Client/List.vue");
 
 export const routes: Array<RouteConfig> = [
   {
