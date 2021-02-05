@@ -5,6 +5,7 @@
   "pages.user.password": "",
   "pages.user.signin": "",
   "pages.user.signup": "",
+  "pages.user.signup.title": "",
   "pages.user.firstname": "",
   "pages.user.lastname": "",
   "pages.user.confirm-password": ""

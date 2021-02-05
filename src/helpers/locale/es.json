@@ -4,6 +4,7 @@
   "pages.user.email": "Correo electrónico",
   "pages.user.password": "Contraseña",
   "pages.user.signup": "Registrarse",
+  "pages.user.signup.title": "Registro",
   "pages.user.signin": "Entrar",
   "pages.user.firstname": "Nombre",
   "pages.user.lastname": "Apellidos",

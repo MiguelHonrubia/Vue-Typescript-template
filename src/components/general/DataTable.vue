@@ -1,5 +1,5 @@
 <template>
-  <v-data-table :headers="headers" :items="items"></v-data-table>
+  <v-data-table :headers="headers" :items="items" ></v-data-table>
 </template>
 
 <script>

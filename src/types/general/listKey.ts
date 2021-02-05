@@ -1,7 +1,8 @@
 export type listKeys = {
-  key: string;
+  value: string;
   text?: string;
   visible?: false;
   align?: string;
   sortable?: boolean;
+  template?: Vue.Component;
 };
